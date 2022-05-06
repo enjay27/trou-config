@@ -5,6 +5,6 @@ token:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: "{cipher}a7f2c6fe2f67e425c64d5efb2d948c5bc130bbc44edaa072831ffca16002450775b425191f5e7d38bc12af08c16437d5f51e7e46cd606e656d8ad52c89162ef6"
-    username: "{cipher}448c60ea02bd964d0cde6737a1832abeba93b5852af6b704a71d1f1699761c70"
-    password: "{cipher}f2b9972cb5f13a1457843acff5c7ca78016e5feefcd34cb57ce3bf68620222aa"
+    url: "{cipher}4be4dfba290ed0b0dcb7f9cbcf25f2af4f0613de9958dde6f6883963cfa52d2f6b50204cb2ed5ce5374e0c73b4cbd8617bc5039a015862745879ca23d155bd44"
+    username: "{cipher}d813ea139408e9b498560dd13e2804e2d556b5f208e25c9145a2bfebe0410573"
+    password: "{cipher}885c2319aa2081e8eceb89d313a1874ad1d645e19d43a1a8e6ef6815fb905f9e"
