@@ -1,3 +1,10 @@
 token:
   expiration_time: 86400000
-  secret: default_refresh
+  secret: kE1F7eBXqsRxegSwAt80RkKXgGoS35xM
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: "{cipher}a7f2c6fe2f67e425c64d5efb2d948c5bc130bbc44edaa072831ffca16002450775b425191f5e7d38bc12af08c16437d5f51e7e46cd606e656d8ad52c89162ef6"
+    username: "{cipher}448c60ea02bd964d0cde6737a1832abeba93b5852af6b704a71d1f1699761c70"
+    password: "{cipher}f2b9972cb5f13a1457843acff5c7ca78016e5feefcd34cb57ce3bf68620222aa"
