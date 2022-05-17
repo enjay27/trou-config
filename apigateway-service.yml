@@ -21,6 +21,14 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
+            - Path=/user-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
             - Path=/user-service/check/**
             - Method=GET
           filters:
@@ -63,11 +71,27 @@ spring:
         - id: place-service
           uri: lb://PLACE-SERVICE
           predicates:
+            - Path=/place-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/place-service/(?<segment>.*), /$\{segment}
+        - id: place-service
+          uri: lb://PLACE-SERVICE
+          predicates:
             - Path=/place-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/place-service/(?<segment>.*), /$\{segment}
+        - id: review-service
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/review-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/review-service/(?<segment>.*), /$\{segment}
         - id: review-service
           uri: lb://REVIEW-SERVICE
           predicates:
@@ -79,11 +103,27 @@ spring:
         - id: triporder-service
           uri: lb://TRIPORDER-SERVICE
           predicates:
+            - Path=/triporder-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/triporder-service/(?<segment>.*), /$\{segment}
+        - id: triporder-service
+          uri: lb://TRIPORDER-SERVICE
+          predicates:
             - Path=/triporder-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/triporder-service/(?<segment>.*), /$\{segment}
+        - id: tripplan-service
+          uri: lb://TRIPPLAN-SERVICE
+          predicates:
+            - Path=/tripplan-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/tripplan-service/(?<segment>.*), /$\{segment}
         - id: tripplan-service
           uri: lb://TRIPPLAN-SERVICE
           predicates:
@@ -95,6 +135,14 @@ spring:
         - id: triproute-service
           uri: lb://TRIPROUTE-SERVICE
           predicates:
+            - Path=/triproute-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/triproute-service/(?<segment>.*), /$\{segment}
+        - id: triproute-service
+          uri: lb://TRIPROUTE-SERVICE
+          predicates:
             - Path=/triproute-service/**
             - Method=GET,POST
           filters:
@@ -103,11 +151,27 @@ spring:
         - id: tag-service
           uri: lb://TAG-SERVICE
           predicates:
+            - Path=/tag-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/tag-service/(?<segment>.*), /$\{segment}
+        - id: tag-service
+          uri: lb://TAG-SERVICE
+          predicates:
             - Path=/tag-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/tag-service/(?<segment>.*), /$\{segment}
+        - id: share-service
+          uri: lb://SHARE-SERVICE
+          predicates:
+            - Path=/share-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/share-service/(?<segment>.*), /$\{segment}
         - id: share-service
           uri: lb://SHARE-SERVICE
           predicates:
