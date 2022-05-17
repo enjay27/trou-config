@@ -15,6 +15,8 @@ spring:
     password: "{cipher}885c2319aa2081e8eceb89d313a1874ad1d645e19d43a1a8e6ef6815fb905f9e"
 
 eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
   client:
     register-with-eureka: true
     fetch-registry: true
