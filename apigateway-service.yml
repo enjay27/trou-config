@@ -59,7 +59,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/test-service/(?<segment>.*), /$\{segment}
-            - AuthorizationHeaderFilter
+#            - AuthorizationHeaderFilter
         - id: place-service
           uri: lb://PLACE-SERVICE
           predicates:
@@ -108,3 +108,11 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/tag-service/(?<segment>.*), /$\{segment}
+        - id: share-service
+          uri: lb://SHARE-SERVICE
+          predicates:
+            - Path=/share-service/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/share-service/(?<segment>.*), /$\{segment}
