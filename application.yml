@@ -13,3 +13,10 @@ spring:
     url: "{cipher}4be4dfba290ed0b0dcb7f9cbcf25f2af4f0613de9958dde6f6883963cfa52d2f6b50204cb2ed5ce5374e0c73b4cbd8617bc5039a015862745879ca23d155bd44"
     username: "{cipher}d813ea139408e9b498560dd13e2804e2d556b5f208e25c9145a2bfebe0410573"
     password: "{cipher}885c2319aa2081e8eceb89d313a1874ad1d645e19d43a1a8e6ef6815fb905f9e"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://k6b106.p.ssafy.io:8761/eureka
