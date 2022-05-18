@@ -5,43 +5,43 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/login
+            - Path=/api/user-service/login
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/join
+            - Path=/api/user-service/join
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/actuator/**
+            - Path=/api/user-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/check/**
+            - Path=/api/user-service/check/**
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/**
+            - Path=/api/user-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
         - id: test-service
           uri: lb://TEST-SERVICE
@@ -71,19 +71,19 @@ spring:
         - id: place-service
           uri: lb://PLACE-SERVICE
           predicates:
-            - Path=/place-service/actuator/**
+            - Path=/api/place-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/place-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/place-service/(?<segment>.*), /$\{segment}
         - id: place-service
           uri: lb://PLACE-SERVICE
           predicates:
-            - Path=/place-service/**
+            - Path=/api/place-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/place-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/place-service/(?<segment>.*), /$\{segment}
         - id: review-service
           uri: lb://REVIEW-SERVICE
           predicates:
