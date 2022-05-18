@@ -100,54 +100,22 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/review-service/(?<segment>.*), /$\{segment}
-        - id: triporder-service
-          uri: lb://TRIPORDER-SERVICE
+        - id: trip-service
+          uri: lb://TRIP-SERVICE
           predicates:
-            - Path=/triporder-service/actuator/**
+            - Path=/trip-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/triporder-service/(?<segment>.*), /$\{segment}
-        - id: triporder-service
-          uri: lb://TRIPORDER-SERVICE
+            - RewritePath=/trip-service/(?<segment>.*), /$\{segment}
+        - id: trip-service
+          uri: lb://TRIP-SERVICE
           predicates:
-            - Path=/triporder-service/**
+            - Path=/trip-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/triporder-service/(?<segment>.*), /$\{segment}
-        - id: tripplan-service
-          uri: lb://TRIPPLAN-SERVICE
-          predicates:
-            - Path=/tripplan-service/actuator/**
-            - Method=GET,POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/tripplan-service/(?<segment>.*), /$\{segment}
-        - id: tripplan-service
-          uri: lb://TRIPPLAN-SERVICE
-          predicates:
-            - Path=/tripplan-service/**
-            - Method=GET,POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/tripplan-service/(?<segment>.*), /$\{segment}
-        - id: triproute-service
-          uri: lb://TRIPROUTE-SERVICE
-          predicates:
-            - Path=/triproute-service/actuator/**
-            - Method=GET,POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/triproute-service/(?<segment>.*), /$\{segment}
-        - id: triproute-service
-          uri: lb://TRIPROUTE-SERVICE
-          predicates:
-            - Path=/triproute-service/**
-            - Method=GET,POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/triproute-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/trip-service/(?<segment>.*), /$\{segment}
         - id: tag-service
           uri: lb://TAG-SERVICE
           predicates:
