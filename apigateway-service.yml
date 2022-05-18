@@ -29,7 +29,7 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/history/**
+            - Path=/api/user-service/history/**
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
@@ -37,7 +37,6 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/**
             - Path=/api/user-service/actuator/**
             - Method=GET,POST
           filters:
@@ -84,7 +83,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/api/test-service/(?<segment>.*), /$\{segment}
-#            - AuthorizationHeaderFilter
+        #            - AuthorizationHeaderFilter
         - id: place-service
           uri: lb://PLACE-SERVICE
           predicates:
