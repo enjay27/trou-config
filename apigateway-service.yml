@@ -5,19 +5,19 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/login
+            - Path=/api/user-service/login
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user-service/join
+            - Path=/api/user-service/join
             - Method=POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -38,81 +38,130 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/user-service/**
+            - Path=/api/user-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
-            - AuthorizationHeaderFilter
-        - id: test-service
-          uri: lb://TEST-SERVICE
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
+        - id: user-service
+          uri: lb://USER-SERVICE
           predicates:
-            - Path=/test-service/users
-            - Method=POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/test-service/(?<segment>.*), /$\{segment}
-        - id: test-service
-          uri: lb://TEST-SERVICE
-          predicates:
-            - Path=/test-service/actuator/**
-            - Method=GET,POST
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/test-service/(?<segment>.*), /$\{segment}
-        - id: test-service
-          uri: lb://TEST-SERVICE
-          predicates:
-            - Path=/test-service/**
+            - Path=/api/user-service/check/**
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/test-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/user-service/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/user-service/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
+        - id: test-service
+          uri: lb://TEST-SERVICE
+          predicates:
+            - Path=/api/test-service/users
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/test-service/(?<segment>.*), /$\{segment}
+        - id: test-service
+          uri: lb://TEST-SERVICE
+          predicates:
+            - Path=/api/test-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/test-service/(?<segment>.*), /$\{segment}
+        - id: test-service
+          uri: lb://TEST-SERVICE
+          predicates:
+            - Path=/api/test-service/**
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/test-service/(?<segment>.*), /$\{segment}
+#            - AuthorizationHeaderFilter
         - id: place-service
           uri: lb://PLACE-SERVICE
           predicates:
-            - Path=/place-service/**
+            - Path=/api/place-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/place-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/place-service/(?<segment>.*), /$\{segment}
+        - id: place-service
+          uri: lb://PLACE-SERVICE
+          predicates:
+            - Path=/api/place-service/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/place-service/(?<segment>.*), /$\{segment}
         - id: review-service
           uri: lb://REVIEW-SERVICE
           predicates:
-            - Path=/review-service/**
+            - Path=/api/review-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/review-service/(?<segment>.*), /$\{segment}
-        - id: triporder-service
-          uri: lb://TRIPORDER-SERVICE
+            - RewritePath=/api/review-service/(?<segment>.*), /$\{segment}
+        - id: review-service
+          uri: lb://REVIEW-SERVICE
           predicates:
-            - Path=/triporder-service/**
+            - Path=/api/review-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/triporder-service/(?<segment>.*), /$\{segment}
-        - id: tripplan-service
-          uri: lb://TRIPPLAN-SERVICE
+            - RewritePath=/api/review-service/(?<segment>.*), /$\{segment}
+        - id: trip-service
+          uri: lb://TRIP-SERVICE
           predicates:
-            - Path=/tripplan-service/**
+            - Path=/api/trip-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/tripplan-service/(?<segment>.*), /$\{segment}
-        - id: triproute-service
-          uri: lb://TRIPROUTE-SERVICE
+            - RewritePath=/api/trip-service/(?<segment>.*), /$\{segment}
+        - id: trip-service
+          uri: lb://TRIP-SERVICE
           predicates:
-            - Path=/triproute-service/**
+            - Path=/api/trip-service/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/triproute-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/trip-service/(?<segment>.*), /$\{segment}
         - id: tag-service
           uri: lb://TAG-SERVICE
           predicates:
-            - Path=/tag-service/**
+            - Path=/api/tag-service/actuator/**
             - Method=GET,POST
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/tag-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api/tag-service/(?<segment>.*), /$\{segment}
+        - id: tag-service
+          uri: lb://TAG-SERVICE
+          predicates:
+            - Path=/api/tag-service/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/tag-service/(?<segment>.*), /$\{segment}
+        - id: share-service
+          uri: lb://SHARE-SERVICE
+          predicates:
+            - Path=/api/share-service/actuator/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/share-service/(?<segment>.*), /$\{segment}
+        - id: share-service
+          uri: lb://SHARE-SERVICE
+          predicates:
+            - Path=/api/share-service/**
+            - Method=GET,POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/api/share-service/(?<segment>.*), /$\{segment}
